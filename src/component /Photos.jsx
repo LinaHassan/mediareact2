@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import classes from "./Photos.module.css"
+import classes from "./Photos.module.css";
 
 const Photos = () => {
   const { id } = useParams();
@@ -19,15 +19,14 @@ const Photos = () => {
     getPhotos();
   }, [id]);
   return (
-     <main className={classes.main_section} >
+    <main className={classes.main_section}>
       {allphotos.map((photo) => (
         <div className={classes.pic_section} key={photo.id}>
           <img src={photo.url} alt="Photos"></img>
           <p> {photo.title}</p>
         </div>
       ))}
-      </main>
-    
+    </main>
   );
 };
 

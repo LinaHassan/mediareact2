@@ -4,16 +4,14 @@ import classes from "./Albums.module.css";
 import { Link } from "react-router-dom";
 
 const Albums = () => {
-  const {value} = useContext(UserContext);
+  const { value } = useContext(UserContext);
   const userID = value ? value.id : null;
   const [albums, setAlbums] = useState([]);
 
-  
   useEffect(() => {
-  
     const getAlbum = async () => {
       const response = await fetch(
-       `https://jsonplaceholder.typicode.com/albums?userId=${userID}`
+        `https://jsonplaceholder.typicode.com/albums?userId=${userID}`
       );
       const data = await response.json();
       setAlbums(data);
@@ -30,12 +28,9 @@ const Albums = () => {
         <h1>List of the Album</h1>
 
         {albums.map((album) => (
-            <div className={classes.albums} key={album.id}>
-          <Link to={`/Photos/${album.id}`}>
-          
-              {album.title}
-          </Link>
-            </div>
+          <div className={classes.albums} key={album.id}>
+            <Link to={`/Photos/${album.id}`}>{album.title}</Link>
+          </div>
         ))}
       </div>
     </>

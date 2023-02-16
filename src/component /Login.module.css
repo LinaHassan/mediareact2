@@ -1,0 +1,52 @@
+.loginMain{
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 23vw;
+  gap: 1.5rem;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 0 0.125rem rgba(0, 0, 0, 0.1),
+    0 0.1875rem 0.125rem rgba(0, 0, 0, 0.1),
+    inset 0 -0.1875rem 0.125rem rgba(0, 0, 0, 0.2);
+  padding: 3rem;
+  text-align: start;
+}
+
+.form input {
+  width: 18vw;
+  height: 4vh;
+  border: 0.125rem solid #000000;
+  padding-left: 1rem;
+}
+
+.form button {
+  width: 20vw;
+  height: 4vh;
+  text-align: center;
+  color: white;
+  background-color: black;
+  border: 0.125rem solid #000000;
+  border-radius: 0.375rem;
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 15px;
+  letter-spacing: 0.04em;
+}
+.form P {
+  color: red;
+}
+@media screen and (max-width: 490px) {
+  input {
+    font-size: 0.35rem;
+  }
+  h1 {
+    font-size: 1rem;
+  }
+}

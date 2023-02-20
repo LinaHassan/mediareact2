@@ -9,7 +9,7 @@ const PrivateRoutes = () => {
     setValue(user);
   }, []);
 
-  return user ? <Outlet/> : <Navigate to="/" />;
+  return user ? <Outlet /> : <Navigate to="/" />;
 };
 
 export default PrivateRoutes;

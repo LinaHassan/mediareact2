@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import UserContext from "../useContext/UserContext";
 import classes from "./Albums.module.css";
 import { Link } from "react-router-dom";
-
+import axios from "axios";
 const Albums = () => {
   const { value } = useContext(UserContext);
   const userID = value ? value.id : null;
@@ -10,14 +10,12 @@ const Albums = () => {
 
   useEffect(() => {
     const getAlbum = async () => {
-      const response = await fetch(
-        `https://jsonplaceholder.typicode.com/albums?userId=${userID}`
-      );
-      const data = await response.json();
-      setAlbums(data);
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+      try {
+        const response = await axios.get(`/albums?userId=${userID}`);
+        const data = await response.data;
+        setAlbums(data);
+      } catch (error) {
+        throw new error(`HTTP error! ${error}`);
       }
     };
     getAlbum();

@@ -6,10 +6,10 @@ import Photos from "./component /Photos";
 import PrivateRoutes from "./PrivateRoutes";
 import UserContext from "./useContext/UserContext";
 import { useState } from "react"; 
-
+import axios from "axios";
 function App() {
   const [value, setValue] = useState(JSON.parse(localStorage.getItem("user")));
-
+  axios.defaults.baseURL="https://jsonplaceholder.typicode.com/"
   return (
     <div className="App">
     

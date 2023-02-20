@@ -1,19 +1,18 @@
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import classes from "./Photos.module.css";
-
+import axios from "axios";
 const Photos = () => {
   const { id } = useParams();
   const [allphotos, setAllPhotos] = useState([]);
   useEffect(() => {
     const getPhotos = async () => {
-      const response = await fetch(
-        `https://jsonplaceholder.typicode.com/photos?albumId=${id}`
-      );
-      const data = await response.json();
-      setAllPhotos(data);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+      try {
+        const response = await axios.get(`/photos?albumId=${id}`);
+        const data = await response.data;
+        setAllPhotos(data);
+      } catch (error) {
+        throw new error(`HTTP error! ${error}`);
       }
     };
     getPhotos();
